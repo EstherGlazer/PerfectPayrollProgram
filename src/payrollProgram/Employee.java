@@ -1,8 +1,9 @@
 package payrollProgram;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Employee extends Person {
-	private Date dateHired;
+	private LocalDate dateHired;
 	private PayType payType;
 	private double payRate;
 	private int dependents;
@@ -12,22 +13,22 @@ public class Employee extends Person {
 	private int hoursWorked;
 	private TaxRate taxRate;
 	
-	public Employee(int ID, String name, Address address,Date dateHired, PayType payType, double payRate, int dependents, Benefits benefits, Double pay,YTDPay YTDPay, int hoursWorked, TaxRate taxRate) {
-		super(ID, name, address);
-		this.dateHired=dateHired;
+	public Employee(int SSN, String name, Address address,LocalDate localDate, PayType payType, double payRate, int dependents, Benefits benefits) {
+		super(SSN, name, address);
+		this.dateHired=localDate;
 		this.payType=payType;
 		this.payRate=payRate;
 		this.dependents=dependents;
 		this.benefits = benefits;
-		this.pay=pay;
-		this.YTDPay=YTDPay;
-		this.hoursWorked=hoursWorked;
-		this.taxRate=taxRate;
+		//this.pay=pay;
+		//this.YTDPay=YTDPay;
+		//this.hoursWorked=hoursWorked;
+		//this.taxRate=taxRate;
 	}
-	public void setDateHired(Date datehired) {
+	public void setDateHired(LocalDate datehired) {
 		this.dateHired=datehired;
 	}
-	public Date getDateHired() {
+	public LocalDate getDateHired() {
 		return dateHired;
 	}
 	public void setPayType(PayType pt) {
