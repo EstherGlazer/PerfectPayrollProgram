@@ -43,5 +43,8 @@ public class TaxRate {
 		return dependents;
 	}
 	
+	public double getTaxRate() {
+		return federalTax+stateTax;
+	}
 }
 

@@ -3,7 +3,7 @@ package payrollProgram;
 public class Pay {
 	private PayType payType;
 	private double hoursWorked;
-	private TaxRate taxRate;
+	private double taxRate;
 	private double rate;
 	
 	private Employee employee;
@@ -14,7 +14,7 @@ public class Pay {
 		this.employee=employee;
 		this.hoursWorked=employee.getHoursWorked();
 		this.payType=employee.getPayType();
-		this.taxRate=employee.getTaxRate();
+		this.taxRate=employee.getTaxRate().getTaxRate();
 		this.rate=employee.getPayRate();
 	}
 	
