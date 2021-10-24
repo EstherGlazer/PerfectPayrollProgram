@@ -12,8 +12,17 @@ public class Employee extends Person {
 	private int hoursWorked;
 	private TaxRate taxRate;
 	
-	public Employee(Date dateHired, PayType payType, double payRate, int dependents, Benefits benefits, Double pay,YTDPay YTDPay, int hoursWorked, TaxRate taxRate) {
-		this(dateHired,payType, payRate, dependents, benefits, pay, YTDPay, hoursWorked, taxRate);
+	public Employee(int ID, String name, Address address,Date dateHired, PayType payType, double payRate, int dependents, Benefits benefits, Double pay,YTDPay YTDPay, int hoursWorked, TaxRate taxRate) {
+		super(ID, name, address);
+		this.dateHired=dateHired;
+		this.payType=payType;
+		this.payRate=payRate;
+		this.dependents=dependents;
+		this.benefits = benefits;
+		this.pay=pay;
+		this.YTDPay=YTDPay;
+		this.hoursWorked=hoursWorked;
+		this.taxRate=taxRate;
 	}
 	public void setDateHired(Date datehired) {
 		this.dateHired=datehired;
@@ -24,7 +33,7 @@ public class Employee extends Person {
 	public void setPayType(PayType pt) {
 		this.payType=pt;
 	}
-	public double getPayType() {
+	public PayType getPayType() {
 		return payType;
 	}
 	public void setDependent(int dep) {
