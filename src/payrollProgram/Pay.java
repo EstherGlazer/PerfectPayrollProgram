@@ -3,7 +3,7 @@ package payrollProgram;
 public class Pay {
 	private PayType payType;
 	private double hoursWorked;
-	private double taxRate;
+	private TaxRate taxRate;
 	private double rate;
 	
 	private Employee employee;
@@ -15,7 +15,7 @@ public class Pay {
 		this.hoursWorked=employee.getHoursWorked();
 		this.payType=employee.getPayType();
 		this.taxRate=employee.getTaxRate();
-		this.rate=employee.getRate();
+		this.rate=employee.getPayRate();
 	}
 	
 	public void calculateGrossPay() {
