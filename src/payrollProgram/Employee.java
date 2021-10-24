@@ -36,7 +36,13 @@ public class Employee extends Person {
 	public PayType getPayType() {
 		return payType;
 	}
-	public void setDependent(int dep) {
+	public void setPayRate(double payRate) {
+		this.payRate=payRate;
+	}
+	public double getPayRate() {
+		return payRate;
+	}
+	public void setDependents(int dep) {
 		this.dependents=dep;
 	}
 	public int getDependents() {
