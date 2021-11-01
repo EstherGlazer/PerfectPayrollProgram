@@ -26,6 +26,7 @@ public class Main {
 		String name = input.nextLine();
 		System.out.println("What is the Employee's SSN?");
 		int ssn = input.nextInt();
+		input.nextLine();
 		System.out.println("What is the employee's street address?");
 		String street = input.nextLine();
 		System.out.println("City?");
@@ -39,8 +40,10 @@ public class Main {
 		String payType = input.nextLine();//make if else
 		System.out.println("What is the hourly rate?");//fix later, cuz might not be hourly rate
 		Double rate = input.nextDouble();
+		input.nextLine();
 		System.out.println("How many dependents are there, if any?");
 		int depend = input.nextInt();
+		input.nextLine();
 		System.out.println("What are the included benefits?");
 		String bf = input.nextLine();//create benefits option
 		Benefits b = new Benefits();//fix
@@ -56,7 +59,7 @@ public class Main {
 		//do validation in case it's not an int!
 		
 		int choice = input.nextInt();
-		
+		input.nextLine();
 		//do switch statement in main using choice
 		return choice;
 	}
