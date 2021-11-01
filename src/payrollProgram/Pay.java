@@ -30,6 +30,7 @@ public class Pay {
 	}
 	
 	public double getNetPay() {
+		calculateNetPay();
 		return netPay;
 	}
 }
