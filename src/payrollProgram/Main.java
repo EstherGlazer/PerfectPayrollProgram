@@ -36,7 +36,7 @@ public class Main {
 		System.out.println("Zip?");
 		String zip = input.nextLine();
 		Address add = new Address(street, city, state, zip);
-		System.out.println("Paid Hourly or Salary? ('h' or 's'");
+		System.out.println("Paid Hourly or Salary? ('h' or 's')");
 		String payType = input.nextLine();//make if else
 		System.out.println("What is the hourly rate?");//fix later, cuz might not be hourly rate
 		Double rate = input.nextDouble();
