@@ -22,7 +22,7 @@ public class Employee extends Person {
 		this.benefits = benefits;
 		//this.pay=pay;
 		//this.YTDPay=YTDPay;
-		//this.hoursWorked=hoursWorked;
+		this.hoursWorked=hoursWorked;
 		//this.taxRate=taxRate;
 	}
 	public void setDateHired(LocalDate datehired) {
@@ -59,8 +59,10 @@ public class Employee extends Person {
 		this.pay=pay;
 	}
 	public double getPay() {
-		return pay;
-	}
+		Pay pay = new Pay(hoursWorked, taxRate, payRate, payType);
+		return pay.calculateGrossPay();
+		
+		}
 	public void setYTDPay(YTDPay ytd) {
 		this.YTDPay=ytd;
 	}
