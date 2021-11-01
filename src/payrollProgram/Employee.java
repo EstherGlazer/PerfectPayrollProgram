@@ -57,9 +57,9 @@ public class Employee extends Person {
 	public void setPay(double pay) {
 		this.pay=pay;
 	}
-	public double getPay() {
+	public Pay getPay() {
 		Pay pay = new Pay(hoursWorked, taxRate, payRate, payType);
-		return pay.getGrossPay();
+		return pay;
 		}
 	public void setYTDPay(YTDPay ytd) {
 		this.YTDPay=ytd;

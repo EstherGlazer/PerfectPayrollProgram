@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 
 public class PayStubPrinter {
 	private Employee emp;
-	private double pay;
+	private Pay pay;
 	private String date = LocalDate.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
 	
 
