@@ -1,4 +1,5 @@
 package payrollProgram;
+
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -6,12 +7,12 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
-	
+
 	public static void main(String[] args) throws FileNotFoundException {
 		Scanner input = new Scanner(System.in);
-		int choice= menu(input);
+		int choice = menu(input);
 		Employee employee1 = null;
-		
+
 		switch (choice) {
 		case 1:
 			employee1 = createEmp(input);
@@ -19,9 +20,10 @@ public class Main {
 		case 2:
 			PayStubPrinter p = new PayStubPrinter(employee1);
 			p.payStubPrinter();
-			}
-		
+		}
+
 	}
+
 	private static Employee createEmp(Scanner input) {
 		// Benefits benefits,
 		System.out.println("What is the Employee's Name?");
@@ -39,41 +41,40 @@ public class Main {
 		String zip = input.nextLine();
 		Address add = new Address(street, city, state, zip);
 		System.out.println("Paid Hourly or Salary? ('h' or 's')");
-		String payTypeEntry = input.nextLine();//make if else
+		String payTypeEntry = input.nextLine();// make if else
 		double rate;
 		PayType payType;
-		if(payTypeEntry=="h") {
-			payType=PayType.Hourly;
-			System.out.println("What is the hourly rate?");//fix later, cuz might not be hourly rate
+		if (payTypeEntry.equals("h")) {
+			payType = PayType.Hourly;
+			System.out.println("What is the hourly rate?");// fix later, cuz might not be hourly rate
 			rate = input.nextDouble();
-			}
-		else {
-			payType=PayType.Salary;
+		} else {
+			payType = PayType.Salary;
 			System.out.println("What is your salary?");
 			rate = input.nextDouble();
-			}
+		}
 		input.nextLine();
 		System.out.println("How many dependents are there, if any?");
 		int depend = input.nextInt();
 		input.nextLine();
 		System.out.println("What are the included benefits?");
-		String bf = input.nextLine();//create benefits option
-		Benefits b = new Benefits();//fix
+		String bf = input.nextLine();// create benefits option
+		Benefits b = new Benefits();// fix
 		Employee employee1 = new Employee(ssn, name, add, LocalDate.now(), payType, rate, depend, b);
 		return employee1;
-		
+
 	}
 
 	public static int menu(Scanner input) {
 		System.out.println("Please choose from the following options. ");
-		
+
 		System.out.println("1. Enter a new employee");
 		System.out.println("2. Print a PayStub");
-		//do validation in case it's not an int!
-		
+		// do validation in case it's not an int!
+
 		int choice = input.nextInt();
 		input.nextLine();
-		//do switch statement in main using choice
+		// do switch statement in main using choice
 		return choice;
 	}
 }

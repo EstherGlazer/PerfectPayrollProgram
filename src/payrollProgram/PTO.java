@@ -4,8 +4,8 @@ public class PTO extends Benefits{
 	private int vacationDays;
 	private int sickDays;
 
-	public PTO() {
-	}
+	//public PTO() {
+	//}
 	
 	public PTO(int v, int s) {
 		this.vacationDays = v;
