@@ -44,35 +44,26 @@ public class Person {
 		str.append("\nAddress: "+ address);		
 		return str.toString();
 	}
-	//equals method: compares based on ID and name
-	public boolean equals(Object o) {
-		if(this==o) {
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		}
-		if(o==null) {
+		if (!(obj instanceof Person))
 			return false;
-		}
-		if(getClass() != o.getClass()) {
+		Person other = (Person) obj;
+		if (ID != other.ID)
 			return false;
-		}
-		Person compare= (Person) o ;
-		if(ID<0) {
-			if(compare.ID >= 0) {
+		if (address == null) {
+			if (other.address != null)
 				return false;
-			}
-		}
-		if(ID != compare.ID) {
+		} else if (!address.equals(other.address))
 			return false;
-		}
-		if(name==null) {
-			if(compare.name != null) {
+		if (name == null) {
+			if (other.name != null)
 				return false;
-			}
-		}
-		if(name != name) {
+		} else if (!name.equals(other.name))
 			return false;
-		}
-		
 		return true;
 	}
 

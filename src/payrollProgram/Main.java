@@ -1,24 +1,26 @@
 package payrollProgram;
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		Scanner input = new Scanner(System.in);
 		int choice= menu(input);
+		Employee employee1 = null;
 		
 		switch (choice) {
 		case 1:
-			Employee employee1 = createEmp(input);
+			employee1 = createEmp(input);
 			break;
-		}
+		case 2:
+			PayStubPrinter p = new PayStubPrinter(employee1);
+			p.payStubPrinter();
+			}
 		
-		
-		
-		//Address address= new Address("84-54 118th street", "Kew Gardens", "NY", "11415");
-		//Employee employee1= new Employee(111001234, "RenaTanenbaum", address, LocalDate.now(), PayType.Hourly, 20.00, 0,   );
 	}
 	private static Employee createEmp(Scanner input) {
 		// Benefits benefits,
@@ -56,6 +58,7 @@ public class Main {
 		System.out.println("Please choose from the following options. ");
 		
 		System.out.println("1. Enter a new employee");
+		System.out.println("2. Print a PayStub");
 		//do validation in case it's not an int!
 		
 		int choice = input.nextInt();
