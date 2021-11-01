@@ -1,6 +1,5 @@
 package payrollProgram;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Employee extends Person {
 	private LocalDate dateHired;
