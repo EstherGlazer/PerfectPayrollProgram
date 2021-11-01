@@ -1,10 +1,10 @@
 package payrollProgram;
 
 public class TaxRate {
-	double federalTax;
-	double stateTax;
+	private double federalTax;
+	private double stateTax;
 	//double cityTax; //should we include this?
-	int dependents;
+	private int dependents;
 	//int incomeBracket;
 	
 	public TaxRate() {
