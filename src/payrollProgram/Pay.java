@@ -21,11 +21,12 @@ public class Pay {
 	}
 	
 	public double getGrossPay() {
+		calculateGrossPay();
 		return grossPay;
 	}
 	
 	public void calculateNetPay() {
-		netPay=grossPay*taxRate;
+		netPay=grossPay*taxRate.getTaxRate();
 	}
 	
 	public double getNetPay() {
