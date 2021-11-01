@@ -37,9 +37,19 @@ public class Main {
 		String zip = input.nextLine();
 		Address add = new Address(street, city, state, zip);
 		System.out.println("Paid Hourly or Salary? ('h' or 's')");
-		String payType = input.nextLine();//make if else
-		System.out.println("What is the hourly rate?");//fix later, cuz might not be hourly rate
-		Double rate = input.nextDouble();
+		String payTypeEntry = input.nextLine();//make if else
+		double rate;
+		PayType payType;
+		if(payTypeEntry=="h") {
+			payType=PayType.Hourly;
+			System.out.println("What is the hourly rate?");//fix later, cuz might not be hourly rate
+			rate = input.nextDouble();
+			}
+		else {
+			payType=PayType.Salary;
+			System.out.println("What is your salary?");
+			rate = input.nextDouble();
+			}
 		input.nextLine();
 		System.out.println("How many dependents are there, if any?");
 		int depend = input.nextInt();
@@ -47,7 +57,7 @@ public class Main {
 		System.out.println("What are the included benefits?");
 		String bf = input.nextLine();//create benefits option
 		Benefits b = new Benefits();//fix
-		Employee employee1 = new Employee(ssn, name, add, LocalDate.now(), PayType.Hourly, rate, depend, b);
+		Employee employee1 = new Employee(ssn, name, add, LocalDate.now(), payType, rate, depend, b);
 		return employee1;
 		
 	}
