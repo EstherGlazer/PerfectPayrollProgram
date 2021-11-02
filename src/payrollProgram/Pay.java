@@ -17,7 +17,12 @@ public class Pay {
 	}
 	
 	public void calculateGrossPay() {
-		grossPay=hoursWorked*rate;
+		if(payType==PayType.Hourly) {
+			grossPay=hoursWorked*rate;
+		}
+		else{
+			grossPay=rate;
+		}
 	}
 	
 	public double getGrossPay() {
