@@ -7,7 +7,7 @@ public class Employee extends Person {
 	private double payRate;
 	private int dependents;
 	private Benefits benefits;
-	private double pay; //what they actually got
+	private Pay pay; //what they actually got
 	private YTDPay YTDPay;
 	private int hoursWorked;
 	private TaxRate taxRate;
@@ -24,6 +24,7 @@ public class Employee extends Person {
 		this.hoursWorked=hoursWorked;
 		//this.taxRate=taxRate;
 	}
+
 	public void setDateHired(LocalDate datehired) {
 		this.dateHired=datehired;
 	}
@@ -54,11 +55,11 @@ public class Employee extends Person {
 	public Benefits getBenefits() {
 		return benefits;
 	}
-	public void setPay(double pay) {
-		this.pay=pay;
-	}
+//	public void setPay(double pay) {
+//		this.pay=pay;
+//	}
 	public Pay getPay() {
-		Pay pay = new Pay(hoursWorked, taxRate, payRate, payType);
+		//Pay pay = new Pay(hoursWorked, taxRate, payRate, payType);
 		return pay;
 		}
 	public void setYTDPay(YTDPay ytd) {
@@ -78,6 +79,10 @@ public class Employee extends Person {
 	}
 	public TaxRate getTaxRate() {
 		return taxRate;
+	}
+
+	public void setPay(Pay pay) {
+		this.pay = pay;
 	}
 	
 

@@ -1,6 +1,6 @@
 package payrollProgram;
 
-public class PTO extends Benefits{
+public class PTO {
 	private int vacationDays;
 	private int sickDays;
 	

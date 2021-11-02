@@ -36,6 +36,10 @@ public class HoursWorked {
 		long hoursWorked = diffInMinutes / 60;
 		this.hoursWorked = (double) hoursWorked;
 	}
+	
+	public HoursWorked(double i) {
+		this.hoursWorked = i;
+	}
 	public double getHoursWorked() {
 		return hoursWorked;
 	}

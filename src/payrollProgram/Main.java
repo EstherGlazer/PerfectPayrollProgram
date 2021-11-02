@@ -3,6 +3,7 @@ package payrollProgram;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -10,18 +11,38 @@ public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		Scanner input = new Scanner(System.in);
-		int choice = menu(input);
-		Employee employee1 = null;
 
-		switch (choice) {
-		case 1:
-			employee1 = createEmp(input);
-			break;
-		case 2:
-			PayStubPrinter p = new PayStubPrinter(employee1);
-			p.payStubPrinter();
+		ArrayList<Employee> employees = new ArrayList<Employee>();
+		boolean exit = false;
+		while (!exit ) {
+			int choice = menu(input);
+			switch (choice) {
+			case 1:
+				employees.add(createEmp(input));
+				break;
+			case 2:
+				System.out.println("Which employee do you want to print?");
+				int num = input.nextInt();
+				PayStubPrinter p = new PayStubPrinter(employees.get(num));
+				p.payStubPrinter();
+				break;
+			case 3:
+				System.out.println("Which employee do you want to add pay information?");
+				num = input.nextInt();
+				addPayInfo(employees.get(num), input);
+			case 4:
+				exit = true;
+				System.exit(0);
+			}
 		}
+	}
 
+	private static void addPayInfo(Employee employee, Scanner input) {
+		System.out.println("How many hours did this employee work?");
+		double num = input.nextInt();
+		HoursWorked h = new HoursWorked(num);
+		Pay pay = new Pay(h.getHoursWorked(), employee.getTaxRate(), employee.getPayRate(), employee.getPayType());
+		employee.setPay(pay);
 	}
 
 	private static Employee createEmp(Scanner input) {
@@ -70,6 +91,7 @@ public class Main {
 
 		System.out.println("1. Enter a new employee");
 		System.out.println("2. Print a PayStub");
+		System.out.println("3. Exit");
 		// do validation in case it's not an int!
 
 		int choice = input.nextInt();
