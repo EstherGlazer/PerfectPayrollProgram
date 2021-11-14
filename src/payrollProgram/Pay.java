@@ -15,6 +15,12 @@ public class Pay {
 		this.taxRate=taxRate;
 		this.rate=payRate;
 	}
+	public Pay(double rate, TaxRate taxRate, PayType payType){
+		this.rate=rate;
+		this.payType=payType;
+		this.taxRate=taxRate;
+		
+	}
 	
 	public void calculateGrossPay() {
 		if(payType==PayType.Hourly) {
