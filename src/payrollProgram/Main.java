@@ -46,10 +46,12 @@ public class Main {
 				Pay pay = new Pay(h.getHoursWorked(), employee.getTaxRate(), employee.getPayRate(), employee.getPayType());
 				break;
 			case PayType.monthlySalary:
-				Pay pay = new Pay(employee.getRate(), employee.getTaxRate(), employee.getPayRate(), employee.getPayType());
+				Pay pay = new Pay(employee.getRate(), employee.getTaxRate(), employee.getPayType());
 				break;
 			case PayType.YearlySalary:
-				Pay pay = new Pay(h.getHoursWorked()/12, employee.getTaxRate(), employee.getPayRate(), employee.getPayType());
+				System.out.println("How many times a year does this employee get paid?");
+				int howOften = keyboard.nextInt();
+				Pay pay = new Pay(h.getHoursWorked()/howOften, employee.getTaxRate(), employee.getPayType());
 				break;
 		}				
 		employee.setPay(pay);
