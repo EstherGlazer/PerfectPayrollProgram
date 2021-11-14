@@ -12,8 +12,8 @@ public class Employee extends Person {
 	private int hoursWorked;
 	private TaxRate taxRate;
 	
-	public Employee(int SSN, String name, Address address,LocalDate localDate, PayType payType, double payRate, int dependents, Benefits benefits) {
-		super(SSN, name, address);
+	public Employee(int SSN, String fname, String lname, Address address,LocalDate localDate, PayType payType, double payRate, int dependents, Benefits benefits) {
+		super(SSN, fname, lname, address);
 		this.dateHired=localDate;
 		this.payType=payType;
 		this.payRate=payRate;
@@ -22,7 +22,7 @@ public class Employee extends Person {
 		//this.pay=pay;
 		//this.YTDPay=YTDPay;
 		this.hoursWorked=hoursWorked;
-		//this.taxRate=taxRate;
+		this.taxRate=new TaxRate();;
 	}
 
 	public void setDateHired(LocalDate datehired) {

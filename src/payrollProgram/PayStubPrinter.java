@@ -25,12 +25,12 @@ public class PayStubPrinter {
 	
 
 	public void payStubPrinter() throws FileNotFoundException {
-		File file = new File(emp.getName() + "_" + date + ".txt");
+		File file = new File(emp.getFname() +"_"+emp.getLname()+ "_" + date + ".txt");
 		PrintWriter printWriter = new PrintWriter(file);
 		printWriter.println("\t\t\t\t\t\t" + date);
-		printWriter.println(emp.getName() + "\n\n");
+		printWriter.println(emp.getFname()+" "+emp.getLname() + "\n\n");
 		printWriter.println(emp.getAddress());
-		printWriter.println("\n\n\n\nGross Pay: " + pay.getGrossPay() + "\n\n\n\n");
+		printWriter.println("\n\n\n\nGross Pay:\n_______________________________\n  " + pay.getGrossPay() + "\n\n\n\n");
 		printWriter.println("Net Pay:\n_______________________________\n " + pay.getNetPay() + "\n\n\n");
 		printWriter.close();
 	}

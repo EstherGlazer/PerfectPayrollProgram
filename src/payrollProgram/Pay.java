@@ -37,7 +37,7 @@ public class Pay {
 	}
 	
 	public void calculateNetPay() {
-		netPay=grossPay*taxRate.getTaxRate();
+		netPay=grossPay*(1-taxRate.getTaxRate());
 	}
 	
 	public double getNetPay() {

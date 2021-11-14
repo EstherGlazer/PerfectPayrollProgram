@@ -10,7 +10,7 @@ public class TaxRate {
 	public TaxRate() {
 		federalTax = .12;
 		stateTax = .04;
-		dependents=1;
+		dependents=0;
 	}
 	
 	public TaxRate(int dependents) {

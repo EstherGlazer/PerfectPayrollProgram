@@ -48,11 +48,13 @@ public class Person {
 	public String toString() {
 		StringBuilder str= new StringBuilder();
 		str.append("\nID: "+ ID);
-		str.append("\nName: "+name);
+		str.append("\nName: "+fname+" "+lname);
 		str.append("\nAddress: "+ address);		
 		return str.toString();
 	}
 
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -67,12 +69,19 @@ public class Person {
 				return false;
 		} else if (!address.equals(other.address))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (fname == null) {
+			if (other.fname != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!fname.equals(other.fname))
+			return false;
+		if (lname == null) {
+			if (other.lname != null)
+				return false;
+		} else if (!lname.equals(other.lname))
 			return false;
 		return true;
 	}
+
+
 
 }
