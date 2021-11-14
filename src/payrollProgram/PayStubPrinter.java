@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 public class PayStubPrinter {
 	private Employee emp;
 	private Pay pay;
-	private String date = LocalDate.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+	private String date = LocalDate.now().format(DateTimeFormatter.ofPattern("MM-dd-yyyy"));
 	
 
 	public PayStubPrinter(Employee emp) {
@@ -19,20 +19,19 @@ public class PayStubPrinter {
 	public PayStubPrinter(Employee emp, LocalDate date) {
 		this.emp = emp;
 		this.pay = emp.getPay();
-		this.date = date.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+		this.date = date.format(DateTimeFormatter.ofPattern("MM-dd-yyyy"));
 	}
 	
 	
 
 	public void payStubPrinter() throws FileNotFoundException {
-		//File file = new File(emp.getName() + "_" + date + ".txt");
-		File file = new File("ex.txt");//fix
+		File file = new File(emp.getName() + "_" + date + ".txt");
 		PrintWriter printWriter = new PrintWriter(file);
-		printWriter.println(date);
-		printWriter.println(emp.getName());
+		printWriter.println("\t\t\t\t\t\t" + date);
+		printWriter.println(emp.getName() + "\n\n");
 		printWriter.println(emp.getAddress());
-		printWriter.println("Gross Pay: " + pay.getGrossPay());
-		printWriter.println("Net Pay: " + pay.getNetPay());
+		printWriter.println("\n\n\n\nGross Pay: " + pay.getGrossPay() + "\n\n\n\n");
+		printWriter.println("Net Pay:\n_______________________________\n " + pay.getNetPay() + "\n\n\n");
 		printWriter.close();
 	}
 }

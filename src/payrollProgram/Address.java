@@ -29,8 +29,8 @@ public String getZipcode() {
 @Override
 public String toString() {
 	StringBuilder string = new StringBuilder();
-	string.append(street+" ");
-	string.append("\n"+ city+","+state+" "+zipcode );
+	string.append(street.toUpperCase()+" ");
+	string.append("\n"+ city.toUpperCase()+","+state.toUpperCase()+" "+zipcode );
 	return string.toString();
 }
 }
