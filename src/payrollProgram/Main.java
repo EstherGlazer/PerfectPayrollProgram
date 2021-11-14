@@ -61,20 +61,22 @@ public class Main {
 		// Benefits benefits,
 		System.out.println("What is the Employee's Name?");
 		String name = input.nextLine();
+		name = name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
 		System.out.println("What is the Employee's SSN?");
 		int ssn = input.nextInt();
 		input.nextLine();
 		System.out.println("What is the employee's street address?");
-		String street = input.nextLine();
+		String street = input.nextLine().toUpperCase();
 		System.out.println("City?");
 		String city = input.nextLine();
+		city = city.substring(0,1).toUpperCase() + city.substring(1).toLowerCase();
 		System.out.println("State?");
-		String state = input.nextLine();
+		String state = input.nextLine().toUpperCase();
 		System.out.println("Zip?");
 		String zip = input.nextLine();
 		Address add = new Address(street, city, state, zip);
 		System.out.println("Paid Hourly or Salary? ('h' or 's')");
-		String payTypeEntry = input.nextLine();// make if else
+		String payTypeEntry = input.nextLine().toLowerCase();// make if else
 		double rate;
 		PayType payType;
 		if (payTypeEntry.equals("h")) {
