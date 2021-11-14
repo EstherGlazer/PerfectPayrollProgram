@@ -38,10 +38,20 @@ public class Main {
 	}
 
 	private static void addPayInfo(Employee employee, Scanner input) {
-		System.out.println("How many hours did this employee work?");
-		double num = input.nextInt();
-		HoursWorked h = new HoursWorked(num);
-		Pay pay = new Pay(h.getHoursWorked(), employee.getTaxRate(), employee.getPayRate(), employee.getPayType());
+		switch(employee.getPayType()){
+			case PayType.hourly:
+				System.out.println("How many hours did this employee work?");
+				double num = input.nextInt();
+				HoursWorked h = new HoursWorked(num);
+				Pay pay = new Pay(h.getHoursWorked(), employee.getTaxRate(), employee.getPayRate(), employee.getPayType());
+				break;
+			case PayType.monthlySalary:
+				Pay pay = new Pay(employee.getRate(), employee.getTaxRate(), employee.getPayRate(), employee.getPayType());
+				break;
+			case PayType.YearlySalary:
+				Pay pay = new Pay(h.getHoursWorked()/12, employee.getTaxRate(), employee.getPayRate(), employee.getPayType());
+				break;
+		}				
 		employee.setPay(pay);
 	}
 
