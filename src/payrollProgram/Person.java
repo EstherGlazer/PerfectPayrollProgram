@@ -2,18 +2,20 @@ package payrollProgram;
 
 public class Person {
 	private int ID;
-	private String name;
+	private String fname;
+	private String lname;
 	//has an address
 	private Address address;
 	
 	//constructor
-	public Person(int ID, String name, String street, String city, String state, String zip) {
+	public Person(int ID, String fname, String lname, String street, String city, String state, String zip) {
 		this.ID= ID;
-		this.name= name;
+		this.fname= fname;
+		this.lname=lname;
 		address= new Address(street, city, state, zip);
 	}
-	public Person(int ID, String name, Address add) {
-		this(ID, name, add.getStreet(), add.getCity(), add.getState(), add.getZipcode());
+	public Person(int ID, String fname, String lname, Address add) {
+		this(ID, fname, lname, add.getStreet(), add.getCity(), add.getState(), add.getZipcode());
 	}
 	//setters and getters
 	public void setID(int ID) {
@@ -22,11 +24,17 @@ public class Person {
 	public int getID() {
 		return ID;
 	}
-	public void setName(String name) {
-		this.name=name;
+	public void setFname(String fname) {
+		this.fname=fname;
 	}
-	public String getName() {
-		return name;
+	public String getFname() {
+		return fname;
+	}
+	public void setLname(String lname){
+		this.lname=lname;
+	}
+	public String getLname(){
+		return lname;
 	}
 	public void setAddress(Address add) {
 		this.address=add;
