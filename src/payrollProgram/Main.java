@@ -29,16 +29,20 @@ public class Main {
 				System.out.println("Which employee do you want to add pay information?");
 				num = input.nextInt();
 				addPayInfo(employees.get(num), input);
+				System.out.println("Pay added to Employee "+num+" "+employee.get(num).getLame()+" "+employee.get(num).getLname());
+				break;
 			case 4:
 				System.out.println("Which employee do you want to print? Enter the employee number");
 				int num = input.nextInt();
 				PayStubPrinter p = new PayStubPrinter(employees.get(num));
 				p.payStubPrinter();
+				System.out.println("Pay Stub printed for Employee "+num+" "+employee.get(num).getLame()+" "+employee.get(num).getLname());
 				break;
 
 			case 5:
 				exit = true;
-				System.exit(0);
+				break;
+				
 			}
 		}
 	}
@@ -65,24 +69,24 @@ public class Main {
 
 	private static Employee createEmp(Scanner input) {
 		// Benefits benefits,
-		System.out.println("What is the Employee's Name?");
-		String name = input.nextLine();
-		name = name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
+		System.out.println("What is the Employee's First Name?");
+		String fname = input.nextLine();
+		System.out.println("What is the Employee's Last Name?");
+		String lname = input.nextLine();
 		System.out.println("What is the Employee's SSN?");
 		int ssn = input.nextInt();
 		input.nextLine();
 		System.out.println("What is the employee's street address?");
-		String street = input.nextLine().toUpperCase();
+		String street = input.nextLine();
 		System.out.println("City?");
 		String city = input.nextLine();
-		city = city.substring(0,1).toUpperCase() + city.substring(1).toLowerCase();
 		System.out.println("State?");
-		String state = input.nextLine().toUpperCase();
+		String state = input.nextLine();
 		System.out.println("Zip?");
 		String zip = input.nextLine();
 		Address add = new Address(street, city, state, zip);
 		System.out.println("Paid Hourly or Salary? ('h' or 's')");
-		String payTypeEntry = input.nextLine().toLowerCase();// make if else
+		String payTypeEntry = input.nextLine();// make if else
 		double rate;
 		PayType payType;
 		if (payTypeEntry.equals("h")) {
