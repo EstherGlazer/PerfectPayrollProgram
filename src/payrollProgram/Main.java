@@ -19,18 +19,24 @@ public class Main {
 			switch (choice) {
 			case 1:
 				employees.add(createEmp(input));
+				System.out.println("Employee #"+employees.size()-1+" added");
 				break;
 			case 2:
-				System.out.println("Which employee do you want to print?");
-				int num = input.nextInt();
-				PayStubPrinter p = new PayStubPrinter(employees.get(num));
-				p.payStubPrinter();
+				for(int x=0; x<employees.size(); x++)
+					System.out.println(x+"\t"+employees.get();
 				break;
 			case 3:
 				System.out.println("Which employee do you want to add pay information?");
 				num = input.nextInt();
 				addPayInfo(employees.get(num), input);
 			case 4:
+				System.out.println("Which employee do you want to print? Enter the employee number");
+				int num = input.nextInt();
+				PayStubPrinter p = new PayStubPrinter(employees.get(num));
+				p.payStubPrinter();
+				break;
+
+			case 5:
 				exit = true;
 				System.exit(0);
 			}
@@ -102,8 +108,10 @@ public class Main {
 		System.out.println("Please choose from the following options. ");
 
 		System.out.println("1. Enter a new employee");
-		System.out.println("2. Print a PayStub");
-		System.out.println("3. Exit");
+		System.out.println("2. Display a list of employees");
+		System.out.println("3. Add pay");
+		System.out.println("4. Print a PayStub");
+		System.out.println("5. Exit");
 		// do validation in case it's not an int!
 
 		int choice = input.nextInt();
