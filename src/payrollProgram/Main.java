@@ -19,19 +19,20 @@ public class Main {
 			switch (choice) {
 			case 1:
 				employees.add(createEmp(input));
-				System.out.println("Employee #"+employees.size()-1+" added");
+				System.out.println("Employee #"+(employees.size()-1)+" added");
 				break;
 			case 2:
 				for(int x=0; x<employees.size(); x++)
-					System.out.println(x+"\t"+employees.get();
+					System.out.println(x+"\t"+employees.get(x));
 				break;
 			case 3:
 				System.out.println("Which employee do you want to add pay information?");
-				num = input.nextInt();
+				int num = input.nextInt();
 				addPayInfo(employees.get(num), input);
+				break;
 			case 4:
 				System.out.println("Which employee do you want to print? Enter the employee number");
-				int num = input.nextInt();
+				num = input.nextInt();
 				PayStubPrinter p = new PayStubPrinter(employees.get(num));
 				p.payStubPrinter();
 				break;
@@ -44,20 +45,21 @@ public class Main {
 	}
 
 	private static void addPayInfo(Employee employee, Scanner input) {
+		Pay pay=null;
 		switch(employee.getPayType()){
-			case PayType.hourly:
+			case Hourly:
 				System.out.println("How many hours did this employee work?");
 				double num = input.nextInt();
 				HoursWorked h = new HoursWorked(num);
-				Pay pay = new Pay(h.getHoursWorked(), employee.getTaxRate(), employee.getPayRate(), employee.getPayType());
+				pay = new Pay(h.getHoursWorked(), employee.getTaxRate(), employee.getPayRate(), employee.getPayType());
 				break;
-			case PayType.monthlySalary:
-				Pay pay = new Pay(employee.getRate(), employee.getTaxRate(), employee.getPayType());
+			case MonthlySalary:
+				pay = new Pay(employee.getPayRate(), employee.getTaxRate(), employee.getPayType());
 				break;
-			case PayType.YearlySalary:
+			case YearlySalary:
 				System.out.println("How many times a year does this employee get paid?");
-				int howOften = keyboard.nextInt();
-				Pay pay = new Pay(h.getHoursWorked()/howOften, employee.getTaxRate(), employee.getPayType());
+				int howOften = input.nextInt();
+				pay = new Pay(employee.getPayRate()/howOften, employee.getTaxRate(), employee.getPayType());
 				break;
 		}				
 		employee.setPay(pay);
