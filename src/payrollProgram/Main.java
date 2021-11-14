@@ -29,17 +29,14 @@ public class Main {
 				System.out.println("Which employee do you want to add pay information?");
 				int num = input.nextInt();
 				addPayInfo(employees.get(num), input);
-<<<<<<< HEAD
-=======
-				System.out.println("Pay added to Employee "+num+" "+employee.get(num).getLame()+" "+employee.get(num).getLname());
->>>>>>> 7bc28167e1bf01780142cc98466edd4d350f74f7
+				System.out.println("Pay added to Employee "+num+" "+employees.get(num).getFname()+" "+employees.get(num).getLname());
 				break;
 			case 4:
 				System.out.println("Which employee do you want to print? Enter the employee number");
 				num = input.nextInt();
 				PayStubPrinter p = new PayStubPrinter(employees.get(num));
 				p.payStubPrinter();
-				System.out.println("Pay Stub printed for Employee "+num+" "+employee.get(num).getLame()+" "+employee.get(num).getLname());
+				System.out.println("Pay Stub printed for Employee "+num+" "+employees.get(num).getFname()+" "+employees.get(num).getLname());
 				break;
 
 			case 5:
