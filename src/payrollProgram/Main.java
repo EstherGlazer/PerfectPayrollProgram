@@ -39,7 +39,7 @@ public class Main {
 				p.payStubPrinter();
 				System.out.println("Pay Stub printed for Employee " + num + " " + employees.get(num).getFname() + " "
 						+ employees.get(num).getLname());
-				System.out.println("It is saved in the PerfectPayrollProgram.");
+				System.out.println("It is saved in the PerfectPayrollProgram folder.");
 				break;
 
 			case 5:
