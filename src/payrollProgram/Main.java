@@ -19,27 +19,41 @@ public class Main {
 			switch (choice) {
 			case 1:
 				employees.add(createEmp(input));
-				System.out.println("Employee #" + (employees.size() - 1) + " added");
+				System.out.println("Employee #" + (employees.size()) + " added");
 				break;
 			case 2:
 				for (int x = 0; x < employees.size(); x++)
-					System.out.println(x + "\t" + employees.get(x).getFname()+" "+employees.get(x).getLname());
+					System.out.println((x+1) + "\t" + employees.get(x).getFname()+" "+employees.get(x).getLname());
 				break;
 			case 3:
 				System.out.println("Which employee do you want to add pay information?");
-				int num = input.nextInt();
-				addPayInfo(employees.get(num), input);
-				System.out.println("Pay added to Employee " + num + " " + employees.get(num).getFname() + " "
-						+ employees.get(num).getLname());
+				int num = input.nextInt()-1;
+				if(num>=employees.size()) {
+					System.out.println("Sorry, no such employee. Please try another option.");
+				}
+				else {
+					addPayInfo(employees.get(num), input);
+					System.out.println("Pay added to Employee " + num + " " + employees.get(num).getFname() + " "
+							+ employees.get(num).getLname());
+					}
 				break;
 			case 4:
 				System.out.println("Which employee do you want to print? Enter the employee number");
-				num = input.nextInt();
-				PayStubPrinter p = new PayStubPrinter(employees.get(num));
-				p.payStubPrinter();
-				System.out.println("Pay Stub printed for Employee " + num + " " + employees.get(num).getFname() + " "
-						+ employees.get(num).getLname());
-				System.out.println("It is saved in the PerfectPayrollProgram folder.");
+				num = input.nextInt()-1;
+				if(num>=employees.size()) {
+					System.out.println("Sorry, no such employee. Please try again.");
+					
+				}
+				else if(employees.get(num).getPay()==null) {
+					System.out.println("No pay added to employee "+num+". Please add pay before printing a stub.");
+				}
+				else {
+					PayStubPrinter p = new PayStubPrinter(employees.get(num));
+					p.payStubPrinter();
+					System.out.println("Pay Stub printed for Employee " + num + " " + employees.get(num).getFname() + " "
+							+ employees.get(num).getLname());
+					System.out.println("It is saved in the PerfectPayrollProgram folder.");
+				}
 				break;
 
 			case 5:
@@ -99,11 +113,11 @@ public class Main {
 			rate = input.nextDouble();
 		} else if (payTypeEntry.equals("m")) {
 			payType = PayType.MonthlySalary;
-			System.out.println("What is your salary?");
+			System.out.println("What is the monthly salary?");
 			rate = input.nextDouble();
 		} else {
 			payType = PayType.YearlySalary;
-			System.out.println("What is your salary?");
+			System.out.println("What is the yearly salary?");
 			rate = input.nextDouble();
 		}
 		input.nextLine();
