@@ -111,7 +111,7 @@ public class Main {
 		int depend = input.nextInt();
 		input.nextLine();
 		System.out.println("Which benefits package?\n'B'ronze, 'S'ilver, or 'G'old");
-		char benefits = input.nextLine().charAt(0);
+		char benefits = input.nextLine().toUpperCase().charAt(0);
 		Benefits b = new Benefits(benefits);
 		Employee employee1 = new Employee(ssn, fname, lname, add, LocalDate.now(), payType, rate, depend, b);
 		return employee1;
