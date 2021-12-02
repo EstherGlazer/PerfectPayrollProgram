@@ -110,9 +110,9 @@ public class Main {
 		System.out.println("How many dependents are there, if any?");
 		int depend = input.nextInt();
 		input.nextLine();
-		System.out.println("What are the included benefits?");
-		String bf = input.nextLine();// create benefits option
-		Benefits b = new Benefits();// fix
+		System.out.println("Which benefits package?\n'B'ronze, 'S'ilver, or 'G'old");
+		char benefits = input.nextLine().charAt(0);
+		Benefits b = new Benefits(benefits);
 		Employee employee1 = new Employee(ssn, fname, lname, add, LocalDate.now(), payType, rate, depend, b);
 		return employee1;
 

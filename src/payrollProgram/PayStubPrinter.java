@@ -32,6 +32,7 @@ public class PayStubPrinter {
 		printWriter.println(emp.getAddress());
 		printWriter.println("\n\n\n\nGross Pay:\n_______________________________\n  " + pay.getGrossPay() + "\n\n\n\n");
 		printWriter.println("Net Pay:\n_______________________________\n " + pay.getNetPay() + "\n\n\n");
+		printWriter.println("Benefits Package: " + emp.getBenefits().toString());
 		printWriter.close();
 	}
 }
