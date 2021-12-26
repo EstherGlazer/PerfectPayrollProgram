@@ -3,7 +3,7 @@ package payrollProgram;
 public class PTO {
 	private int vacationDays;
 	private int sickDays;
-	
+
 	public PTO(int v, int s) {
 		this.vacationDays = v;
 		this.sickDays = s;
@@ -23,6 +23,14 @@ public class PTO {
 
 	public void setSickDays(int sickDays) {
 		this.sickDays = sickDays;
+	}
+
+	public void subtractSickDay() {
+		sickDays--;
+	}
+
+	public void subtractVacationDay() {
+		vacationDays--;
 	}
 
 }
