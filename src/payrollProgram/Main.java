@@ -48,136 +48,146 @@ public class Main {
 				break;
 
 			case 3:
-
-				System.out.println(
-						"Which employee do you want to add pay information? (Enter 0 to use the same employee)");
-
-				int num = input.nextInt() - 1;
-				if (num == -1) {
-					num = lastEmpUsed;
-				}
-
-				// validate
-				if (num > employees.size() || num < 0) {
-					System.out.println("Sorry, no such employee.\nReturning to main menu.");
+				if (employees.isEmpty()) {
+					System.out.println("No employees exist\nReturning to main menu.....");
 				} else {
-					lastEmpUsed = num;
-					addPayInfo(employees.get(num), input);
-					System.out.println("Pay added to Employee " + (num + 1) + " " + employees.get(num).getFname() + " "
-							+ employees.get(num).getLname());
+					System.out.println(
+							"Which employee do you want to add pay information? (Enter 0 to use the same employee)");
+
+					int num = input.nextInt() - 1;
+					if (num == -1) {
+						num = lastEmpUsed;
+					}
+
+					// validate
+					if (num > employees.size() || num < 0) {
+						System.out.println("Sorry, no such employee.\nReturning to main menu......");
+					} else {
+						lastEmpUsed = num;
+						addPayInfo(employees.get(num), input);
+						System.out.println("Pay added to Employee " + (num + 1) + " " + employees.get(num).getFname()
+								+ " " + employees.get(num).getLname());
+					}
 				}
 				break;
 
 			case 4:
-
-				System.out.println(
-						"Which employee do you want to print? Enter the employee number  (Enter 0 to use the same employee)");
-
-				num = input.nextInt() - 1;
-				if (num == -1) {
-					num = lastEmpUsed;
-				}
-
-				if (num >= employees.size() || num < 0) {
-					System.out.println("Sorry, no such employee.\nReturning to main menu.");
-
-				} else if (employees.get(num).getPay() == null) {
-					System.out.println("No pay added to employee " + (num + 1)
-							+ ". Please add pay before printing a stub.\nReturning to main menu.\n");
-
+				if (employees.isEmpty()) {
+					System.out.println("No employees exist\nReturning to main menu.....");
 				} else {
-					lastEmpUsed = num;
-					PayStubPrinter p = new PayStubPrinter(employees.get(num));
-					p.payStubPrinter();
-					System.out.println("Pay Stub printed for Employee " + (num + 1) + " "
-							+ employees.get(num).getFname() + " " + employees.get(num).getLname());
-					System.out.println("It is saved in the PerfectPayrollProgram folder.\n");
+					System.out.println(
+							"Which employee do you want to print? Enter the employee number  (Enter 0 to use the same employee)");
+
+					int num = input.nextInt() - 1;
+					if (num == -1) {
+						num = lastEmpUsed;
+					}
+
+					if (num >= employees.size() || num < 0) {
+						System.out.println("Sorry, no such employee.\nReturning to main menu......");
+
+					} else if (employees.get(num).getPay() == null) {
+						System.out.println("No pay added to employee " + (num + 1)
+								+ ". Please add pay before printing a stub.\nReturning to main menu.\n");
+
+					} else {
+						lastEmpUsed = num;
+						PayStubPrinter p = new PayStubPrinter(employees.get(num));
+						p.payStubPrinter();
+						System.out.println("Pay Stub printed for Employee " + (num + 1) + " "
+								+ employees.get(num).getFname() + " " + employees.get(num).getLname());
+						System.out.println("It is saved in the PerfectPayrollProgram folder.\n");
+					}
 				}
 				break;
 
 			case 5:
-
-				System.out.println("Which employee? Enter the employee number (Enter 0 to use the same employee)");
-
-				num = input.nextInt() - 1;
-				if (num == -1) {
-					num = lastEmpUsed;
-				}
-
-				// validate
-				if (num >= employees.size() || num < 0) {
-					System.out.println("Sorry, no such employee. Returning to main menu.");
-
+				if (employees.isEmpty()) {
+					System.out.println("No employees exist\nReturning to main menu.....");
 				} else {
-					lastEmpUsed = num;
-					char dayType = 0;// Initialize
+					System.out.println("Which employee? Enter the employee number (Enter 0 to use the same employee)");
 
-					System.out.println("Employee " + (num + 1) + employees.get(num));
-
-					// Print what this employee has
-					System.out.println("Sick days: \t" + employees.get(num).getBenefits().getPTO().getSickDays()
-							+ " \nVacation Days: \t" + employees.get(num).getBenefits().getPTO().getVacationDays());
-					input.nextLine();
-
-					// if not days left
-					if (employees.get(num).getBenefits().getPTO().getSickDays() == 0
-							&& employees.get(num).getBenefits().getPTO().getVacationDays() == 0) {
-						System.out.println("Employee " + (num + 1) + " has no sick/vacation days");
-
-					} else if (employees.get(num).getBenefits().getPTO().getSickDays() == 0) {
-						System.out.println(
-								"Employee " + (num + 1) + " has no sick days. Would you like to use a vacation day?");
-						System.out.println("'Y'es or 'N'o?");
-						char useVacationDay = input.nextLine().toUpperCase().charAt(0);
-
-						while (useVacationDay != 'Y' && useVacationDay != 'N') {
-							System.out.println("Invalid entry. Enter 'Y' for Yes and 'N' for No");
-							useVacationDay = input.nextLine().toUpperCase().charAt(0);
-						}
-
-						if (useVacationDay == 'Y') {
-							dayType = 'v';
-						}
-
-					} else if (employees.get(num).getBenefits().getPTO().getVacationDays() == 0) {
-
-						System.out.println(
-								"Employee " + (num + 1) + " has no vacation days. Would you like to use a sick day?");
-						System.out.println("'Y'es or 'N'o?");
-
-						char useSickDay = input.nextLine().toUpperCase().charAt(0);
-
-						while (useSickDay != 'Y' && useSickDay != 'N') {
-							System.out.println("Invalid entry. Enter 'Y' for Yes and 'N' for No");
-							useSickDay = input.nextLine().toUpperCase().charAt(0);
-						}
-
-						if (useSickDay == 'Y') {
-							dayType = 's';
-						}
-
-					} else {
-
-						System.out.println("Do you want to use a sick day or a vacation day? ('s' or 'v')");
-						dayType = input.nextLine().toLowerCase().charAt(0);
-
-						while (dayType != 's' && dayType != 'v') {
-							System.out.println("Invalid entry. Enter 's' for sick day and 'v' for vacation day");
-							dayType = input.nextLine().toLowerCase().charAt(0);
-						}
-
+					int num = input.nextInt() - 1;
+					if (num == -1) {
+						num = lastEmpUsed;
 					}
 
-					if (dayType == 's') {
-						employees.get(num).getBenefits().getPTO().subtractSickDay();
-						System.out.println("Sick day subtracted from Employee " + (num + 1) + employees.get(num));
-
-					} else if (dayType == 'v') {
-						employees.get(num).getBenefits().getPTO().subtractVacationDay();
-						System.out.println("Vacation day subtracted from Employee " + (num + 1) + employees.get(num));
+					// validate
+					if (num >= employees.size() || num < 0) {
+						System.out.println("Sorry, no such employee. Returning to main menu......");
 
 					} else {
-						System.out.println("No adjustment was made. Returning to main menu.");
+						lastEmpUsed = num;
+						char dayType = 0;// Initialize
+
+						System.out.println("Employee " + (num + 1) + employees.get(num));
+
+						// Print what this employee has
+						System.out.println("Sick days: \t" + employees.get(num).getBenefits().getPTO().getSickDays()
+								+ " \nVacation Days: \t" + employees.get(num).getBenefits().getPTO().getVacationDays());
+						input.nextLine();
+
+						// if not days left
+						if (employees.get(num).getBenefits().getPTO().getSickDays() == 0
+								&& employees.get(num).getBenefits().getPTO().getVacationDays() == 0) {
+							System.out.println("Employee " + (num + 1) + " has no sick/vacation days");
+
+						} else if (employees.get(num).getBenefits().getPTO().getSickDays() == 0) {
+							System.out.println("Employee " + (num + 1)
+									+ " has no sick days. Would you like to use a vacation day?");
+							System.out.println("'Y'es or 'N'o?");
+							char useVacationDay = input.nextLine().toUpperCase().charAt(0);
+
+							while (useVacationDay != 'Y' && useVacationDay != 'N') {
+								System.out.println("Invalid entry. Enter 'Y' for Yes and 'N' for No");
+								useVacationDay = input.nextLine().toUpperCase().charAt(0);
+							}
+
+							if (useVacationDay == 'Y') {
+								dayType = 'v';
+							}
+
+						} else if (employees.get(num).getBenefits().getPTO().getVacationDays() == 0) {
+
+							System.out.println("Employee " + (num + 1)
+									+ " has no vacation days. Would you like to use a sick day?");
+							System.out.println("'Y'es or 'N'o?");
+
+							char useSickDay = input.nextLine().toUpperCase().charAt(0);
+
+							while (useSickDay != 'Y' && useSickDay != 'N') {
+								System.out.println("Invalid entry. Enter 'Y' for Yes and 'N' for No");
+								useSickDay = input.nextLine().toUpperCase().charAt(0);
+							}
+
+							if (useSickDay == 'Y') {
+								dayType = 's';
+							}
+
+						} else {
+
+							System.out.println("Do you want to use a sick day or a vacation day? ('s' or 'v')");
+							dayType = input.nextLine().toLowerCase().charAt(0);
+
+							while (dayType != 's' && dayType != 'v') {
+								System.out.println("Invalid entry. Enter 's' for sick day and 'v' for vacation day");
+								dayType = input.nextLine().toLowerCase().charAt(0);
+							}
+
+						}
+
+						if (dayType == 's') {
+							employees.get(num).getBenefits().getPTO().subtractSickDay();
+							System.out.println("Sick day subtracted from Employee " + (num + 1) + employees.get(num));
+
+						} else if (dayType == 'v') {
+							employees.get(num).getBenefits().getPTO().subtractVacationDay();
+							System.out
+									.println("Vacation day subtracted from Employee " + (num + 1) + employees.get(num));
+
+						} else {
+							System.out.println("No adjustment was made. Returning to main menu.");
+						}
 					}
 				}
 				break;
