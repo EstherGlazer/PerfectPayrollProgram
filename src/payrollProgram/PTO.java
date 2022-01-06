@@ -4,9 +4,10 @@ public class PTO {
 	private int vacationDays;
 	private int sickDays;
 
-	public PTO(int v, int s) {
-		this.vacationDays = v;
+	public PTO(int s, int v) {
 		this.sickDays = s;
+		this.vacationDays = v;
+
 	}
 
 	public int getVacationDays() {

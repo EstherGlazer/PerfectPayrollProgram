@@ -1,18 +1,33 @@
 package payrollProgram;
 
+import java.time.LocalDate;
+
 public class YTDPay {
-	double YTDPay;
+	double pay;
+	private int year;
 
 	public YTDPay() {
-		YTDPay = 0;
+		pay = 0;
+		LocalDate currentDate = LocalDate.now();
+		year = currentDate.getYear();
 
 	}
 
 	public void addPay(double pay) {
-		YTDPay += pay;
+		this.pay += pay;
+		LocalDate currentDate = LocalDate.now();
+		year = currentDate.getYear();
 	}
 
 	public double getYTDPay() {
-		return YTDPay;
+		return pay;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public double getPay() {
+		return pay;
 	}
 }

@@ -56,7 +56,8 @@ public class Person {
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
-		str.append("\nSSN: \t" + ID);
+		String ssn = Integer.toString(ID);
+		str.append("\nSSN: \t*****" + ssn.substring(ssn.length()-4));
 		str.append("\nName: \t" + fname + " " + lname);
 		return str.toString();
 	}

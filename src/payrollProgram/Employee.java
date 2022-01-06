@@ -22,6 +22,7 @@ public class Employee extends Person {
 		this.dependents = dependents;
 		this.benefits = benefits;
 		this.taxRate = new TaxRate();
+		this.YTDPay = new YTDPay();
 	}
 
 	public void setDateHired(LocalDate datehired) {
@@ -94,6 +95,11 @@ public class Employee extends Person {
 
 	public void setPay(Pay pay) {
 		this.pay = pay;
+		LocalDate currentDate = LocalDate.now();
+		if (currentDate.getYear() != YTDPay.getYear()) {
+			YTDPay = new YTDPay();
+		}
+		YTDPay.addPay(pay.getGrossPay());
 	}
 
 }

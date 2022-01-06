@@ -39,11 +39,14 @@ public class Main {
 				break;
 
 			case 2:
-
-				// loop through employees to print them.
-				for (int x = 0; x < employees.size(); x++) {
-					System.out
-							.println((x + 1) + "\t" + employees.get(x).getFname() + " " + employees.get(x).getLname());
+				if (employees.isEmpty()) {
+					System.out.println("No employees exist\nReturning to main menu.....");
+				} else {
+					// loop through employees to print them.
+					for (int x = 0; x < employees.size(); x++) {
+						System.out.println(
+								(x + 1) + "\t" + employees.get(x).getFname() + " " + employees.get(x).getLname());
+					}
 				}
 				break;
 
@@ -186,15 +189,17 @@ public class Main {
 									.println("Vacation day subtracted from Employee " + (num + 1) + employees.get(num));
 
 						} else {
-							System.out.println("No adjustment was made. Returning to main menu.");
+							System.out.println("No adjustment was made. Returning to main menu.....");
 						}
 					}
 				}
 				break;
 			case 6:
+				System.out.println("Exiting....Good bye");
 				exit = true;
 				break;
-
+			default:
+				System.out.println("Invalid Entry.\nReturning to main menu.....");
 			}
 		}
 	}

@@ -33,12 +33,12 @@ public class PayStubPrinter {
 
 		printWriter.println("\t\t\t\t\t\t" + date);
 
-		printWriter.println(emp.getFname() + " " + emp.getLname() + "\n\n");
+		printWriter.println(emp.getFname() + " " + emp.getLname());
 		printWriter.println(emp.getAddress());
 
-		printWriter.println("\n\n\n\nGross Pay:\n_______________________________\n  " + pay.getGrossPay() + "\n\n\n\n");
-		printWriter.println("Net Pay:\n_______________________________\n " + pay.getNetPay() + "\n\n\n");
-
+		printWriter.printf("\n\n\n\nGross Pay:\n_______________________________\n  $%.2f\n\n\n\n\n", pay.getGrossPay());
+		printWriter.printf("Net Pay:\n_______________________________\n $%.2f\n\n\n\n", pay.getNetPay());
+		printWriter.printf("YTD Pay: $%.2f\n", emp.getYTDPay().getPay());
 		printWriter.println("Benefits Package: " + emp.getBenefits().toString());
 		printWriter.close();
 	}
